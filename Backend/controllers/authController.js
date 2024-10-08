@@ -2,11 +2,8 @@ const Admin = require('../models/adminModel');
 const jwt = require('jsonwebtoken');
 const Web3 = require('web3');
 
-// Create Web3 instance without a provider
-const web3 = new Web3(); 
-
-// Set the provider
-web3.setProvider('http://localhost:8545'); // Use the HTTP provider
+// Create Web3 instance with provider
+const web3 = new Web3(new Web3.providers.HttpProvider('http://host.docker.internal:7545')); // Use the HTTP provider
 
 // Signup Controller
 exports.signup = async (req, res) => {

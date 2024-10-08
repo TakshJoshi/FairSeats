@@ -3,11 +3,8 @@ const Event = require('../models/eventModel');
 const Web3 = require('web3');
 const TicketBooking = require('../artifacts/contracts/TicketBooking.sol/TicketBooking.json'); // Adjust the path if necessary
 
-// Create Web3 instance
-const web3 = new Web3(); // Create without a provider initially
-
-// Set the provider
-web3.setProvider('http://127.0.0.1:7545'); // Use the HTTP provider
+// Create Web3 instance with provider
+const web3 = new Web3(new Web3.providers.HttpProvider('http://host.docker.internal:7545')); // Use the HTTP provider
 
 let contract;
 
